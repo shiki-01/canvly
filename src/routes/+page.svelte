@@ -2,6 +2,19 @@
 	let theme = false;
 	let themeList = [
 		{
+			name: 'main',
+			mode: {
+				light: {
+					background: '#f0f0f0',
+					color: '#3f3f3f'
+				},
+				dark: {
+					background: '#3f3f3f',
+					color: '#f0f0f0'
+				}
+			}
+		},
+		{
 			name: 'header',
 			mode: {
 				light: {
@@ -80,8 +93,11 @@
 	/>
 </svelte:head>
 
-<main>
-	<header style="background-color: {currentTheme.header?.background}; color: {currentTheme.header?.color};">
+<main style="background-color: {currentTheme.main.background};">
+	<header
+		style="background-color: {currentTheme.header?.background}; color: {currentTheme.header
+			?.color};"
+	>
 		<div>
 			<div class="lang">
 				<span class="material-symbols-outlined">language</span>
@@ -95,6 +111,7 @@
 			<div class="save">
 				<span class="material-symbols-outlined"> save </span>
 			</div>
+			<div></div>
 		</div>
 		<div>
 			<div class="undo">
@@ -106,6 +123,7 @@
 			<div class="file">
 				<span class="material-symbols-outlined"> folder </span>
 			</div>
+			<div></div>
 		</div>
 		<div>
 			<div class="color">
@@ -141,11 +159,13 @@
 		display: grid;
 		grid-template-rows: 3rem 1fr;
 		height: 100vh;
+		transition: 0.3s ease;
 
 		header {
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
 			padding: 0 25px;
+			transition: 0.3s ease;
 
 			div {
 				align-items: center;
@@ -165,6 +185,8 @@
 
 					span {
 						font-size: 1.5rem;
+						user-select: none;
+						cursor: pointer;
 					}
 				}
 
@@ -220,6 +242,8 @@
 
 						span {
 							font-size: 1.5rem;
+							user-select: none;
+							cursor: pointer;
 						}
 					}
 				}
@@ -241,64 +265,53 @@
 
 				.block_list {
 					grid-row: 2 / 3;
-					background-color: #f0f0f0;
 				}
 
 				.edit_space {
 					grid-column: 2 / 3;
 					grid-row: 1 / 3;
-					background-color: #f0f0f0;
 					display: grid;
 					grid-template-rows: 40px 1fr;
 
 					.tab {
 						width: 100%;
 						height: 100%;
-						background-color: #f0f0f0;
 					}
 
 					.edit_area {
 						width: 100%;
 						height: 100%;
-						background-color: #b4b4b4;
 					}
 				}
 			}
 
 			.preview {
-				background-color: #f0f0f0;
-
 				display: grid;
 				grid-template-rows: 40px 1fr;
 
 				.route {
 					width: 100%;
 					height: 100%;
-					background-color: #f0f0f0;
 				}
 
 				.preview_area {
 					width: 100%;
 					height: 100%;
-					background-color: #b4b4b4;
 				}
 			}
 
 			.hint {
-				background-color: #f0f0f0;
 				display: grid;
 				grid-template-rows: 40px 1fr;
 
 				.h {
 					width: 100%;
 					height: 40px;
-					background-color: #f0f0f0;
 				}
 
 				.hint_area {
 					width: 100%;
 					height: 100%;
-					background-color: #b4b4b4;
 				}
 			}
 		}
