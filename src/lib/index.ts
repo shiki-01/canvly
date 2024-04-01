@@ -1,1 +1,2 @@
-// place files you want to import through the `$lib` alias in this folder.
+export { themeList } from './theme/themeList';
+export { currentTheme } from './theme/theme';
