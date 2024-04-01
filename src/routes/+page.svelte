@@ -1,4 +1,5 @@
 <script lang="ts">
+	import logo from '$lib/assets/sketchy_title.svg';
 	import { themeList } from '$lib/theme/themeList';
 	import { currentTheme } from '$lib/theme/theme';
 	let theme = false;
@@ -67,6 +68,9 @@
 		style="background-color: {$currentTheme.header?.background}; color: {$currentTheme.header
 			?.color};"
 	>
+		<div id="logo">
+			<img src={logo} alt="logo" />
+		</div>
 		<div>
 			<Button name="setting" properties={settings} />
 			<Button name="add" properties={settings} />
@@ -115,7 +119,7 @@
 
 		header {
 			display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: 6rem 1fr 1fr 1fr;
 			padding: 0 25px;
 			transition: 0.3s ease;
 
@@ -125,6 +129,23 @@
 				grid-template-columns: repeat(4, 3rem) 1fr;
 				width: 100%;
 				height: 100%;
+			}
+
+			#logo {
+				display: grid;
+				grid-template-columns: 1fr;
+				grid-template-rows: 1fr;
+				align-items: center;
+				justify-items: center;
+				width: 5rem;
+				height: 3rem;
+				border-radius: 0.5rem;
+				cursor: default;
+
+				img {
+					width: 5rem;
+					height: 3rem;
+				}
 			}
 
 			#last {
